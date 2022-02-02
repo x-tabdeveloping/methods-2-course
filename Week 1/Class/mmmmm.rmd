@@ -9,14 +9,23 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 pacman::p_load("tidyverse")
 ```
+1.2 a)
 ```{r}
-X = rnorm(100, 2, 2/3)
+#a)
+X = rnorm(100, 2, 1/2)
 Y = 46.3 + 30*X + rnorm(100, mean = 0, sd = 3.9)
-df = data.frame(X = X, Y = Y)
-df
-df %>% ggplot(aes(X, Y)) + geom_point()
+m = lm(Y ~ X)
+sd(resid(m))
+#b)
+X = rnorm(100, 2, 1/2)
+Y = 46.3 + 30*X + rnorm(100, mean = 0, sd = 10)
 m = lm(Y ~ X)
 sd(resid(m))
 ```
 
+2.3
+```{r}
+df = read_csv("./data/allnames_clean.csv")
+head(df)
+```
 
